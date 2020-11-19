@@ -1,0 +1,19 @@
+<mat-sidenav-container class="example-container" style="background: transparent;">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <div class="conteinerNav">
+      <mat-divider></mat-divider>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='altaAdmin' routerLinkActive="active">Agregar admin</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='altaMateria' routerLinkActive="active">Alta materia</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='inscribirAlumno' routerLinkActive="active">Inscribir alumno</button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <div class="divGrid">
+      <p><button mat-button class="btnIcon" (click)="sidenav.toggle()"><img src="..\..\..\assets\icons\mainPage\menu.svg"></button></p>
+      <app-currentuser style="padding-top: 10px; text-align: right;"></app-currentuser>
+      <button mat-button (click)="LogOut()" style="margin-bottom: 10px;margin-left: 5px;">LogOut</button>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

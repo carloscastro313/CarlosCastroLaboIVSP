@@ -1,0 +1,40 @@
+<div [hidden]="flag">
+  <table mat-table [dataSource]="DataSource">
+    <ng-container matColumnDef="nombreMateria">
+      <mat-header-cell *matHeaderCellDef>Materia</mat-header-cell>
+      <mat-cell *matCellDef="let materia">{{materia.nombreMateria}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cuatrimestre">
+      <mat-header-cell *matHeaderCellDef>Cuatrimestre</mat-header-cell>
+      <mat-cell *matCellDef="let materia">{{materia.cuatrimestre}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="anio">
+      <mat-header-cell *matHeaderCellDef>Año</mat-header-cell>
+      <mat-cell *matCellDef="let materia">{{materia.anio}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cupo">
+      <mat-header-cell *matHeaderCellDef>Cupo</mat-header-cell>
+      <mat-cell *matCellDef="let materia">{{materia.cupo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="profesor">
+      <mat-header-cell *matHeaderCellDef>Profesor</mat-header-cell>
+      <mat-cell *matCellDef="let materia">{{materia.profesor}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="modificar">
+      <mat-header-cell *matHeaderCellDef>Accion</mat-header-cell>
+      <mat-cell *matCellDef="let materia">
+        <button mat-button (click)="modificar(materia.nombreMateria)">Modificar</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+  <mat-paginator [length]="30"
+                [pageSize]="10"
+                [pageSizeOptions]="[2, 5, 10]">
+  </mat-paginator>
+</div>
+

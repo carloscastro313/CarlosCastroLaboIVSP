@@ -1,0 +1,38 @@
+<div id="conteiner" class="contentInput">
+  <table>
+    <tr>
+      <td>
+        <h1 style="margin: 10px; margin-top: 30px;">Register</h1>
+      </td>
+      <td>
+        <p><button mat-button class="btnIcon" (click)="Cerrar()"><img src="../../../assets/icons/register/close-24px.svg"></button></p>
+      </td>
+    </tr>
+  </table>
+  <form [formGroup]="formRegister">
+    <mat-form-field class="inputLogin">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo">
+      <mat-error *ngIf="formRegister.get('correo').touched && formRegister.get('correo').invalid">Correo invalido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="inputLogin">
+      <mat-label>Clave</mat-label>
+      <input matInput type="password" formControlName="clave">
+      <mat-error *ngIf="formRegister.get('clave').touched && formRegister.get('clave').invalid">Clave invalida</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="inputLogin"appearance="fill" >
+      <mat-label>Perfil</mat-label>
+      <mat-select formControlName="perfil">
+        <mat-option value="alumno">Alumno</mat-option>
+        <mat-option value="profesor">Profesor</mat-option>
+      </mat-select>
+      <mat-error *ngIf="formRegister.get('perfil').touched && formRegister.get('perfil').invalid">Falta elegir</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="submit()">Registrar</button>
+
+    <span>{{error}}</span>
+  </form>
+</div>

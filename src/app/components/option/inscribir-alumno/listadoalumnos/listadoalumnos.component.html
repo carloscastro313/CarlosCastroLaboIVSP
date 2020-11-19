@@ -1,0 +1,27 @@
+<div [hidden]="flag">
+  <table mat-table [dataSource]="DataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let alumno">{{alumno.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="correo">
+      <mat-header-cell *matHeaderCellDef>alumno</mat-header-cell>
+      <mat-cell *matCellDef="let alumno">{{alumno.correo}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="añadir">
+      <mat-header-cell *matHeaderCellDef>Accion</mat-header-cell>
+      <mat-cell *matCellDef="let alumno">
+        <button mat-button (click)="agregar(alumno.correo)">Modificar</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+  <mat-paginator [length]="30"
+                [pageSize]="10"
+                [pageSizeOptions]="[2, 5, 10]">
+  </mat-paginator>
+</div>

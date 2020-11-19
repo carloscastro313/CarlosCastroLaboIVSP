@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "utn-parcial": {
+      "hosting": {
+        "carlos-castro-sp": [
+          "utn-parcial"
+        ]
+      }
+    }
+  }
+}
